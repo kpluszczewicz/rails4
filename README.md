@@ -7,6 +7,7 @@ Opis projektu
 -----
 
 Użytkownicy serwisu mogą:
+
 * Tworzyć prezentacje - wstępnie w jakimś języku typu showdown 
 * Określają komu udostępniają swoje prezentacje do wglądu (publiczne, dla określonych grup lub użytkowników)
 
