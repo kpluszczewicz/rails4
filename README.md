@@ -1,17 +1,17 @@
-Project name
+Monkey Presents
 ============
 
-Simple text
+Aplikacja internetowa umożliwiająca użytkownikom tworzenie, gromadzenie oraz wyświetlanie prezentacji.
 
-Test1
+Opis projektu
 -----
 
-Simple text
+Użytkownicy serwisu mogą:
+* Tworzyć prezentacje - wstępnie w jakimś języku typu showdown 
+* Określają komu udostępniają swoje prezentacje do wglądu (publiczne, dla określonych grup lub użytkowników)
 
-* [List 1](https://github.com/Borch/rails4) test
-* [List 2](https://github.com/Borch/rails4) test
-* [List 3](https://github.com/Borch/rails4) test
+Twórca prezentacji może ją odtworzyć w przeglądarce, pozwalając określonym użytkownikom na oglądanie aktualnych slajdów.
 
-### Test2
+### Użyte technologie
 
-Simple text
+Projekt opieramy na Rails 3. Elementy RealTime planujemy zrezlizować przy użyciu gemu [Faye](http://faye.jcoglan.com/)
