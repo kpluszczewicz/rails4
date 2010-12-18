@@ -4,6 +4,8 @@ class CreatePresentations < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.string :filename
+      t.string :status, { :default => 'not ready', :null => false }
+      t.integer :pages, { :default => 0 }
 
       t.timestamps
     end
