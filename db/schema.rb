@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20101218150908) do
     t.string   "filename"
     t.string   "status",      :default => "not ready", :null => false
     t.integer  "pages",       :default => 0
+    t.integer  "page",        :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
