@@ -31,3 +31,5 @@ gem 'simple_form'
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+gem 'devise'

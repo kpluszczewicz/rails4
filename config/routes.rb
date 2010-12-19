@@ -1,5 +1,12 @@
 Rails4::Application.routes.draw do
+  devise_for :users
+
   resources :presentations
+
+  match 'welcome' => 'welcome#welcome'
+  match 'aboutus' => 'welcome#aboutus'
+
+  root :to => "welcome#welcome"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
