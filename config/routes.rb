@@ -4,6 +4,7 @@ Rails4::Application.routes.draw do
   resources :presentations
 
   match 'welcome' => 'welcome#welcome'
+  match 'profile' => 'welcome#profile'
   match 'aboutus' => 'welcome#aboutus'
 
   root :to => "welcome#welcome"

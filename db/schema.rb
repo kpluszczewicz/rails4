@@ -10,7 +10,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101219175447) do
+ActiveRecord::Schema.define(:version => 20101219225541) do
+
+  create_table "groups", :force => true do |t|
+    t.string   "name",                          :null => false
+    t.boolean  "visible",    :default => true,  :null => false
+    t.boolean  "editable",   :default => false, :null => false
+    t.integer  "owner_id",                      :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groups_presentations", :id => false, :force => true do |t|
+    t.integer  "group_id",        :null => false
+    t.integer  "presentation_id", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groups_users", :id => false, :force => true do |t|
+    t.integer  "group_id",   :null => false
+    t.integer  "user_id",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "presentations", :force => true do |t|
     t.string   "title"
@@ -21,6 +44,9 @@ ActiveRecord::Schema.define(:version => 20101219175447) do
     t.integer  "page",        :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "visible",     :default => true,        :null => false
+    t.boolean  "editable",    :default => false,       :null => false
+    t.integer  "owner_id",    :default => 0,           :null => false
   end
 
   create_table "users", :force => true do |t|
