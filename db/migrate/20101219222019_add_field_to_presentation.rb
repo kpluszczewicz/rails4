@@ -2,7 +2,7 @@ class AddFieldToPresentation < ActiveRecord::Migration
   def self.up
     add_column :presentations, :visible, :boolean, :null => false, :default => true
     add_column :presentations, :editable, :boolean, :null => false, :default => false
-    add_column :presentations, :owner_id, :integer, :null => false, :default => false
+    add_column :presentations, :owner_id, :integer, :null => false, :default => 0
   end
 
   def self.down

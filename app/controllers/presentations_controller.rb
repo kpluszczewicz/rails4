@@ -1,10 +1,31 @@
 class PresentationsController < ApplicationController
     respond_to :html, :js
 
-    def new
-        @presentation = Presentation.new
-        respond_with @presentation
+  def index
+    @presentations = Presentation.all
+    respond_with(@presentations)
+  end
+
+  def show
+    begin
+      @presentation = Presentation.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      not_found
+      return
     end
+    if !@presentation.is_visible?(current_user)
+      redirect_to(access_path)
+      return
+    end
+    #TODO
+    @progress = (@presentation.page.to_f() / @presentation.pages.to_f() * 100.0)
+    respond_with(@presentation, @progress)
+  end
+
+  def new
+    @presentation = Presentation.new
+    respond_with(@presentation)
+  end
 
     def create
         @presentation = Presentation.new(params[:presentation])
@@ -46,8 +67,42 @@ class PresentationsController < ApplicationController
         respond_with @presentation
     end
 
-    def show
-        @presentation = Presentation.find(params[:id])
-        @progress = (@presentation.page.to_f() / @presentation.pages.to_f() * 100.0)
+  def edit
+    begin
+      @presentation = Presentation.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      not_found
+      return
     end
+    if !@presentation.is_editable?(current_user)
+      flash[:warning] = "No permission to edit the presentation"
+      redirect_to(presentations_path(@presentation))
+      return
+    end
+    #TODO
+  end
+
+  def update
+    #TODO
+  end
+
+  #TODO
+  def access
+
+  end
+
+  def access_create
+
+  end
+
+  def access_destroy
+
+  end
+
+  private
+
+  def not_found
+    flash[:alert] = "Presentation was not found"
+    redirect_to(presentations_path)
+  end
 end

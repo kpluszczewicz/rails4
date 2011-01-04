@@ -3,6 +3,10 @@ Rails4::Application.routes.draw do
 
   resources :presentations
 
+  match 'presentations/:id/access' => 'presentations#access', :as => 'access'
+  match 'presentations/:id/access_create' => 'presentations#access_create', :as => 'access_create'
+  match 'presentations/:id/access_destroy' => 'presentations#access_destroy', :as => 'access_destroy'
+
   match 'welcome' => 'welcome#welcome'
   match 'profile' => 'welcome#profile'
   match 'aboutus' => 'welcome#aboutus'

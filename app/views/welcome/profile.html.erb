@@ -1,2 +1,31 @@
-<h1>Welcome#profile</h1>
-<p>Find me in app/views/welcome/profile.html.erb</p>
+<h2>Profile</h2>
+
+<table>
+  <tr>
+    <th>My presentations</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @presentations.each do |presentation| %>
+    <tr>
+      <td><%= link_to "#{presentation.title}", presentation %></td>
+      <td><%= link_to "Edit", edit_presentation_path(presentation) %></td>
+      <td><%= link_to "Destroy", presentation_path(presentation), :confirm => "Are you sure?", :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<table>
+  <tr>
+    <th>Access to presentation</th>
+    <th></th>
+  </tr>
+
+  <% @member_of.each do |presentation| %>
+    <tr>
+      <td><%= link_to "#{presentation.title}", presentation %></td>
+      <td><%= link_to "Unsubscribe", access_path(presentation), :confirm => "Are you sure?" %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,15 @@
+<h2>Listing presentation</h2>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+  </tr>
+
+  <% @presentations.each do |presentation| %>
+    <tr>
+      <td><%= link_to "#{presentation.title}", presentation %></td>
+      <td><%= presentation.description %></td>
+    </tr>
+  <% end %>
+</table>

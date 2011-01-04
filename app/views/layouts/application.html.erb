@@ -7,16 +7,36 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+  </header>
+    <h1>Project name</h1>
+  </header>
   <nav>
-    <% if user_signed_in? %>
-      Signed in as <%= current_user.email %>. Not you?
-      <%= link_to "Sign out", destroy_user_session_path %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-    <% end %>
+    <ul>
+      <li><%= link_to "Home", welcome_path %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "New presentation", new_presentation_path %></li>
+          <li><%= link_to "Sign out", destroy_user_session_path %></li>
+        <% else %>
+          <li><%= link_to "Sign in", new_user_session_path %></li>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+        <% end %>
+      <li><%= link_to "About us", aboutus_path %></li>
+    </ul>
   </nav>
-
-<%= yield %>
-
+  <section>
+    <% if flash[:alert] != nil %>
+      <p class="alert"><%= flash[:alert] %></p>
+    <% end %>
+    <% if flash[:warning] != nil %>
+      <p class="warning"><%= flash[:warning] %></p>
+    <% end %>
+    <% if flash[:notice] != nil %>
+      <p class="notice"><%= flash[:notice] %></p>
+    <% end %>
+    <%= yield %>
+  </section>
+  <footer>
+    <p>Copyright 2011</p>
+  </footer>
 </body>
 </html>

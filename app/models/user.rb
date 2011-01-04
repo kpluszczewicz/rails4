@@ -1,16 +1,12 @@
 class User < ActiveRecord::Base
-  has_many :my_presentations,
+  has_many :presentations,
     :dependent => :destroy,
     :class_name => "Presentation",
     :foreign_key => "owner_id"
-  has_many :my_groups,
-    :dependent => :destroy,
-    :class_name => "Group",
-    :foreign_key => "owner_id"
   has_and_belongs_to_many :member_of,
-    :class_name => "Group",
+    :class_name => "Presentation",
     :foreign_key => "user_id",
-    :association_foreign_key => "group_id"
+    :association_foreign_key => "presentation_id"
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
