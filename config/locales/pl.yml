@@ -25,7 +25,7 @@ pl:
   flash:
     actions:
       create:
-        notice: "Now%{gender} %{resource_name} został%{gender} pomyślnie utworzon%{gender}."
+        notice: "Nowy %{resource_name} został pomyślnie utworzony."
       update:
         notice: "%{resource_name} został pomyślnie zaktualizowany."
       destroy:
