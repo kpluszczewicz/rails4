@@ -1,6 +1,4 @@
 class PresentationsController < ApplicationController
-  respond_to :html, :js
-
   def index
     @user = current_user
     @presentations = @user.presentations 
@@ -28,7 +26,7 @@ class PresentationsController < ApplicationController
   def create
     @user = current_user
     @presentation = @user.presentations.build(params[:presentation]) 
-  
+
     if @presentation.save
       flash[:success] = t('flash.actions.create.notice', :resource_name => Presentation.human_name)
       redirect_to profile_path
@@ -37,23 +35,13 @@ class PresentationsController < ApplicationController
     end
   end
 
-  def edit
-    begin
-      @presentation = Presentation.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      not_found
-      return
-    end
-    if !@presentation.is_editable?(current_user)
-      flash[:warning] = "No permission to edit the presentation"
-      redirect_to(presentations_path(@presentation))
-      return
-    end
-    #TODO
-  end
-
   def update
-    #TODO
+    @presentation = Presentation.find(params[:id])
+    if @presentation.update_attributes(params[:presentation])
+      redirect_to profile_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -61,6 +49,10 @@ class PresentationsController < ApplicationController
     @presentation.destroy
     flash[:success] = t('flash.actions.destroy.notice', :resource_name => Presentation.human_name)
     redirect_to profile_path
+  end
+
+  def edit
+    @presentation = Presentation.find(params[:id])
   end
 
   #TODO
@@ -77,7 +69,11 @@ class PresentationsController < ApplicationController
   end
 
   def run
+    @presentation = Presentation.find(params[:id]) 
+    @content = @presentation.content.gsub("\r","")
+
     @raw = @content =~ /\A!SLIDE/ ? @content : "!SLIDE\n#{@content}"
+    @slides = slides
     render :layout => 'presentation'
   end
 
@@ -94,6 +90,8 @@ class PresentationsController < ApplicationController
 
   def lines
     @lines ||= @content.split(/^!SLIDE\s*([a-z\s]*)$/).reject { |line| line.empty? }
+    puts @lines
+    @lines.each { |e| puts "LINIA: " + e }
   end
 
   class Slide

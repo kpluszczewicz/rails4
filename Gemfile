@@ -12,6 +12,9 @@ gem 'faker', '0.3.1'
 gem 'simple_form'
 gem 'makers-mark'
 gem 'open4'
+gem 'albino'
+gem 'nokogiri'
+gem 'devise'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -36,4 +39,3 @@ gem 'open4'
 #   gem 'webrat'
 # end
 
-gem 'devise'

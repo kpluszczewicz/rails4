@@ -11,6 +11,7 @@
     <tr>
       <td><%= link_to "#{presentation.title}", presentation %></td>
       <td><%= link_to "Edit", edit_presentation_path(presentation) %></td>
+      <td><%= link_to "Run", run_presentation_path(presentation) %></td>
       <td><%= link_to "Destroy", presentation, :confirm => "Are you sure?", :method => :delete %></td>
     </tr>
   <% end %>

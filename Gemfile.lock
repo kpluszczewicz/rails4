@@ -52,6 +52,7 @@ GEM
     nokogiri (1.4.4)
     open4 (1.0.1)
     polyglot (0.3.1)
+    pygmentize (0.0.2)
     rack (1.2.1)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
@@ -90,6 +91,7 @@ DEPENDENCIES
   gravatar_image_tag (= 0.1.0)
   makers-mark
   open4
+  pygmentize
   rails (= 3.0.3)
   simple_form
   sqlite3-ruby

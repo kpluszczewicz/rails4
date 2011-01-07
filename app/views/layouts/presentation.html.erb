@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Prezentacja</title>
 
     <%= stylesheet_link_tag 'slides.css', :media => "screen" %>
     <%= javascript_include_tag 'jquery-1.3.2.js' %>
@@ -15,10 +15,12 @@
     </div>
     <div id="slides">
       <div id="track">
-        <% slides.each_with_index do |slide, idx| %>
+        <% @slides.each_with_index do |slide, idx| %>
+          <div class="">
           <div id="slide-<%= idx %>" class="content">
-            <%= slide.html %>
+            <%= slide.html.html_safe %>
           </div>
+        </div>
         <% end %>
       </div>
     </div>
