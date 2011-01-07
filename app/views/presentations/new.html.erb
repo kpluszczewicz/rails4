@@ -1,6 +1,6 @@
 <h2>Create presentation</h2>
 
-<%= form_for(@presentation, :html => { :multipart => true }) do |f| %>
+<%= form_for([@user, @presentation], :html => { :multipart => true }) do |f| %>
     <p>
         <%= f.label 'Title' %>
         <%= f.text_field :title %>

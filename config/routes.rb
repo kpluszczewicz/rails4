@@ -1,17 +1,22 @@
 Rails4::Application.routes.draw do
-  devise_for :users
+  scope ':locale' do
+    devise_for :users
 
-  resources :presentations
+    resources :users do
+      resources :presentations
+    end
 
-  match 'presentations/:id/access' => 'presentations#access', :as => 'access'
-  match 'presentations/:id/access_create' => 'presentations#access_create', :as => 'access_create'
-  match 'presentations/:id/access_destroy' => 'presentations#access_destroy', :as => 'access_destroy'
+    match 'presentations/:id/access' => 'presentations#access', :as => 'access'
+    match 'presentations/:id/access_create' => 'presentations#access_create', :as => 'access_create'
+    match 'presentations/:id/access_destroy' => 'presentations#access_destroy', :as => 'access_destroy'
 
-  match 'welcome' => 'welcome#welcome'
-  match 'profile' => 'welcome#profile'
-  match 'aboutus' => 'welcome#aboutus'
+    match 'welcome' => 'welcome#welcome'
+    match 'profile' => 'welcome#profile'
+    match 'aboutus' => 'welcome#aboutus'
+  end
 
-  root :to => "welcome#welcome"
+  # root :to => "welcome#welcome"
+  match '/(:locale)' => 'welcome#welcome', :as => :root
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -30,6 +30,7 @@ GEM
     activesupport (3.0.3)
     arel (2.0.6)
     bcrypt-ruby (2.1.2)
+    bluecloth (2.0.9)
     builder (2.1.2)
     devise (1.1.5)
       bcrypt-ruby (~> 2.1.2)
@@ -42,7 +43,11 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    makers-mark (0.1.1)
+      bluecloth (>= 2.0.0)
+      nokogiri
     mime-types (1.16)
+    nokogiri (1.4.4)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -78,6 +83,7 @@ PLATFORMS
 
 DEPENDENCIES
   devise
+  makers-mark
   rails (= 3.0.3)
   simple_form
   sqlite3-ruby
