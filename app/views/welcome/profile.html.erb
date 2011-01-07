@@ -11,7 +11,7 @@
     <tr>
       <td><%= link_to "#{presentation.title}", presentation %></td>
       <td><%= link_to "Edit", edit_presentation_path(presentation) %></td>
-      <td><%= link_to "Destroy", presentation_path(presentation), :confirm => "Are you sure?", :method => :delete %></td>
+      <td><%= link_to "Destroy", presentation, :confirm => "Are you sure?", :method => :delete %></td>
     </tr>
   <% end %>
 </table>
@@ -22,10 +22,10 @@
     <th></th>
   </tr>
 
-  <% @member_of.each do |presentation| %>
-    <tr>
-      <td><%= link_to "#{presentation.title}", presentation %></td>
-      <td><%= link_to "Unsubscribe", access_path(presentation), :confirm => "Are you sure?" %></td>
-    </tr>
-  <% end %>
+  <%# <% @member_of.each do |presentation| %>%>
+  <%#   <tr>%>
+  <%#     <td><%= link_to "#{presentation.title}", presentation %></td>%>
+  <%#     <td><%= link_to "Unsubscribe", access_path(presentation), :confirm => "Are you sure?" %></td>%>
+  <%#   </tr>%>
+  <%# <% end %>%>
 </table>

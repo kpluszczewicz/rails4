@@ -37,6 +37,8 @@ GEM
       warden (~> 1.0.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    faker (0.3.1)
+    gravatar_image_tag (0.1.0)
     i18n (0.5.0)
     mail (2.2.12)
       activesupport (>= 2.3.6)
@@ -48,6 +50,7 @@ GEM
       nokogiri
     mime-types (1.16)
     nokogiri (1.4.4)
+    open4 (1.0.1)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -83,7 +86,10 @@ PLATFORMS
 
 DEPENDENCIES
   devise
+  faker (= 0.3.1)
+  gravatar_image_tag (= 0.1.0)
   makers-mark
+  open4
   rails (= 3.0.3)
   simple_form
   sqlite3-ruby

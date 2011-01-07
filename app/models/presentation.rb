@@ -12,6 +12,7 @@ class Presentation < ActiveRecord::Base
   # visible:boolean
   # editable:boolean
   # access_key:string
+  # content: text
 
   validates_numericality_of :owner_id,
     :only_integer => true,
@@ -24,35 +25,27 @@ class Presentation < ActiveRecord::Base
     :minimum => 4,
     :maximum => 20
 
-  def self.save_file(upload)
-    file = upload.filename.original_filename
-    dir = "public/presentations/#{upload.id}/"
-    Dir.mkdir(dir) unless File.directory?(dir)
-    path = File.join(dir, file)
-    File.open(path, "wb") { |f| f.write(upload.filename.read) }
-  end
+  validates :content, :presence => true 
+
+  # def self.save_file(upload)
+  #   file = upload.filename.original_filename
+  #   dir = "public/presentations/#{upload.id}/"
+  #   Dir.mkdir(dir) unless File.directory?(dir)
+  #   path = File.join(dir, file)
+  #   File.open(path, "wb") { |f| f.write(upload.filename.read) }
+  # end
 
   def is_owner?(user)
-    if user == owner
-      return true
-    end
-    return false
+    user == owner
   end
 
   def is_visible?(user)
-    if visible == true
-      return true
-    end
-    if members.exists?(user)
-      return true
-    end
+    return true if visible == true || members.exists?(user)
     return is_owner?(user)
   end
 
   def is_editable?(user)
-    if editable == true && members.exists?(user)
-      return true
-    end
+    return true if editable == true && members.exists?(user)
     return is_owner?(user)
   end
 end

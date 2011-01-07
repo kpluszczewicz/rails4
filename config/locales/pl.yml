@@ -25,11 +25,11 @@ pl:
   flash:
     actions:
       create:
-        notice: "Nowy {{resource_name}} został pomyślnie utworzony."
+        notice: "Now%{gender} %{resource_name} został%{gender} pomyślnie utworzon%{gender}."
       update:
-        notice: "{{resource_name}} został pomyślnie zaktualizowany."
+        notice: "%{resource_name} został pomyślnie zaktualizowany."
       destroy:
-        notice: "{{resource_name}} został pomyślnie usunięty"
+        notice: "%{resource_name} został pomyślnie usunięty"
     sessions:
       failure: "Nieprawidłowa kombinacja loginu i hasła" 
     user:
@@ -151,18 +151,16 @@ pl:
   activerecord:
     models:
       user: "Użytkownik"
-      contact: "Kontakt"
+      presentation: "Prezentacja"
     attributes:
       user:
         name: "Imię"
         password: "Hasło"
         password_confirmation: "Potwierdź hasło"
-      contact:
-        name: "Imię"
-        surname: "Nazwisko"
-        city: "Miasto"
-        phone: "Numer telefonu"
-        street: "Ulica"
+      presentation:
+        title: "Tytuł"
+        description: "Opis"
+        content: "Zawartość"
     errors:
       template:
         header:

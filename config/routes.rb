@@ -2,9 +2,7 @@ Rails4::Application.routes.draw do
   scope ':locale' do
     devise_for :users
 
-    resources :users do
-      resources :presentations
-    end
+    resources :presentations
 
     match 'presentations/:id/access' => 'presentations#access', :as => 'access'
     match 'presentations/:id/access_create' => 'presentations#access_create', :as => 'access_create'

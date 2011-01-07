@@ -11,6 +11,7 @@ gem 'gravatar_image_tag', '0.1.0'
 gem 'faker', '0.3.1'
 gem 'simple_form'
 gem 'makers-mark'
+gem 'open4'
 
 # Use unicorn as the web server
 # gem 'unicorn'

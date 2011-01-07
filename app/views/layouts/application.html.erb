@@ -13,7 +13,7 @@
     <ul>
       <li><%= link_to "Home", welcome_path %></li>
         <% if user_signed_in? %>
-          <li><%= link_to "New presentation", new_user_presentation_path(current_user) %></li>
+          <li><%= link_to "New presentation", new_presentation_path %></li>
           <li><%= link_to "Sign out", destroy_user_session_path %></li>
         <% else %>
           <li><%= link_to "Sign in", new_user_session_path %></li>
@@ -22,20 +22,18 @@
       <li><%= link_to "About us", aboutus_path %></li>
     </ul>
   </nav>
+
   <section>
-    <% if flash[:alert] != nil %>
-      <p class="alert"><%= flash[:alert] %></p>
-    <% end %>
-    <% if flash[:warning] != nil %>
-      <p class="warning"><%= flash[:warning] %></p>
-    <% end %>
-    <% if flash[:notice] != nil %>
-      <p class="notice"><%= flash[:notice] %></p>
-    <% end %>
-    <%= yield %>
+  <% flash.each do |key, value| -%>
+    <div class="flash <%= key %>"><%= value %></div>
+  <% end -%>
+
+  <%= yield %>
   </section>
+
   <footer>
     <p>Copyright 2011</p>
+    <%= debug(params) if Rails.env.development?  %>
   </footer>
 </body>
 </html>

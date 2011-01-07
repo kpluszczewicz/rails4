@@ -1,0 +1,14 @@
+<% if object.errors.any? %>
+  <div id="error_explanation" class="error">
+    <h2><%= I18n.t('activerecord.errors.template.header', 
+                   :count => object.errors.count, 
+                   :model => I18n.t("activerecord.models.#{object.class.name.downcase}")) %> 
+    </h2>
+    <p><%= I18n.t('activerecord.errors.template.body') %></p>
+    <ul>
+    <% object.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
