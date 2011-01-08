@@ -1,4 +1,5 @@
 class PresentationsController < ApplicationController
+  load_and_authorize_resource
   before_filter :presentation_not_found, :except => [ :index, :new, :create ]
   before_filter :presentation_visible, :only => [ :show, :run ]
   before_filter :presentation_editable, :only => [ :edit, :update ]

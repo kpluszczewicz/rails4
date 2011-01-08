@@ -14,6 +14,7 @@ pl:
       invalid_token: 'Niepoprawny token autentykujący.'
       timeout: 'Twoja sesja wygasła, zaloguj się ponownie aby kontynuować.'
       inactive: 'Twoje konto nie zostało jeszcze aktywowane.'
+      denied: 'Nie masz dostępu do strony'
     sessions:
       signed_in: 'Użytkownik został zalogowany.'
       signed_out: 'Użytkownik został wylogowany.'
