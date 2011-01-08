@@ -3,5 +3,13 @@
   <%= f.input :title %>
   <%= f.input :description, :as => :text %>
   <%= f.input :content, :as => :text %>
+  <% if @presentation.is_owner?(@user) %>
+    <fieldset>
+      <legend><%= t('form.presentation.fieldset.legend') %></legend>
+      <%= f.input :visible, :as => :radio %>
+      <%= f.input :editable, :as => :radio %>
+      <%= f.input :access_key %>
+    </fieldset>
+  <% end %>
   <%= f.button :submit %>
 <% end %>

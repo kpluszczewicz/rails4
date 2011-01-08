@@ -8,7 +8,7 @@
 
   <% @presentations.each do |presentation| %>
     <tr>
-      <td><%= link_to "#{presentation.title}", user_presentation %></td>
+      <td><%= link_to "#{presentation.title}", presentation %></td>
       <td><%= presentation.description %></td>
     </tr>
   <% end %>

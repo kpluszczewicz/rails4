@@ -1,0 +1,9 @@
+<h2>Subscribe</h2>
+
+<p><%= @presentation.title %></p>
+
+<%= form_tag(subscribe_create_path(@presentation), :method => "post") do |f| %>
+  <%= label_tag(:access_key, I18n.t('activerecord.attributes.presentation.access_key')) %>
+  <%= text_field_tag(:access_key) %>
+  <%= submit_tag("Subscribe") %>
+<% end %>

@@ -1,34 +1,32 @@
 class PresentationsController < ApplicationController
+  before_filter :presentation_not_found, :except => [ :index, :new, :create ]
+  before_filter :presentation_visible, :only => [ :show, :run ]
+  before_filter :presentation_editable, :only => [ :edit, :update ]
+  before_filter :presentation_destroy, :only => [ :destroy ]
+
+  # note:
+  # instancja '@presentation = Presentation.find(params[:id])' dla akcji poza 
+  # 'index, new, create' znajduje sie w metodzie 'presentation_not_found'
+
   def index
-    @user = current_user
-    @presentations = @user.presentations 
+    @presentations = Presentation.all
   end
 
   def show
-    begin
-      @presentation = Presentation.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      not_found
-      return
-    end
-    if !@presentation.is_visible?(current_user)
-      redirect_to(access_path)
-      return
-    end
+    @user = current_user
     @progress = (@presentation.page.to_f() / @presentation.pages.to_f() * 100.0)
-    respond_with(@presentation, @progress)
   end
 
   def new
+    @user = current_user
     @presentation = Presentation.new
   end
 
   def create
     @user = current_user
     @presentation = @user.presentations.build(params[:presentation]) 
-
     if @presentation.save
-      flash[:success] = t('flash.actions.create.notice', :resource_name => Presentation.human_name)
+      flash[:notice] = t('flash.actions.create.notice', :resource_name => Presentation.human_name)
       redirect_to profile_path
     else
       render 'new' 
@@ -36,8 +34,8 @@ class PresentationsController < ApplicationController
   end
 
   def update
-    @presentation = Presentation.find(params[:id])
     if @presentation.update_attributes(params[:presentation])
+      flash[:notice] = t('flash.actions.update.notice', :resource_name => Presentation.human_name)
       redirect_to profile_path
     else
       render 'edit'
@@ -45,31 +43,38 @@ class PresentationsController < ApplicationController
   end
 
   def destroy
-    @presentation = Presentation.find(params[:id])
     @presentation.destroy
-    flash[:success] = t('flash.actions.destroy.notice', :resource_name => Presentation.human_name)
+    flash[:notice] = t('flash.actions.destroy.notice', :resource_name => Presentation.human_name)
     redirect_to profile_path
   end
 
   def edit
-    @presentation = Presentation.find(params[:id])
+    @user = current_user
   end
 
   #TODO
-  def access
+  def subscribe
 
   end
 
-  def access_create
-
+  def subscribe_create
+    if params.has_key?(:access_key) && @presentation.access_key == params[:access_key]
+      current_user.member_of << @presentation
+      flash[:notice] = t('flash.actions.subscribe.create.notice')
+      redirect_to profile_path
+    else
+      flash[:alert] = t('flash.actions.subscribe.create.alert')
+      render 'subscribe'
+    end
   end
 
-  def access_destroy
-
+  def subscribe_destroy
+    current_user.member_of.delete(@presentation)
+    flash[:notice] = t('flash.actions.subscribe.destroy.notice')
+    redirect_to profile_path
   end
 
   def run
-    @presentation = Presentation.find(params[:id]) 
     @content = @presentation.content.gsub("\r","")
 
     @raw = @content =~ /\A!SLIDE/ ? @content : "!SLIDE\n#{@content}"
@@ -79,9 +84,41 @@ class PresentationsController < ApplicationController
 
   private
 
-  def not_found
-    flash[:alert] = "Presentation was not found"
+  def presentation_not_found
+    begin
+      @presentation = Presentation.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = t('flash.before.not_found', :resource_name => Presentation.human_name)
+      redirect_to(presentations_path)
+      return false
+    end
+    return true
+  end
+
+  def presentation_visible
+    return true if @presentation.is_visible?(current_user)
+    flash[:warning] = t('flash.before.subscribe', :resource_name => Presentation.human_name.downcase)
+    redirect_to(subscribe_path)
+    return false
+  end
+
+  def presentation_editable
+    if !@presentation.is_owner?(current_user) && params.has_key?(:presentation)
+      params[:presentation].delete(:visible) if params[:presentation].has_key?(:visible)
+      params[:presentation].delete(:editable) if params[:presentation].has_key?(:editable)
+      params[:presentation].delete(:access_key) if params[:presentation].has_key?(:access_key)
+    end
+    return true if @presentation.is_editable?(current_user)
+    flash[:alert] = t('flash.before.access_denied')
     redirect_to(presentations_path)
+    return false
+  end
+
+  def presentation_destroy
+    return true if @presentation.is_owner?(current_user)
+    flash[:alert] = t('flash.before.access_denied')
+    redirect_to(presentations_path)
+    return false
   end
 
   def slides

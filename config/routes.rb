@@ -4,9 +4,9 @@ Rails4::Application.routes.draw do
 
     resources :presentations
 
-    match 'presentations/:id/access' => 'presentations#access', :as => 'access'
-    match 'presentations/:id/access_create' => 'presentations#access_create', :as => 'access_create'
-    match 'presentations/:id/access_destroy' => 'presentations#access_destroy', :as => 'access_destroy'
+    match 'presentations/:id/subscribe' => 'presentations#subscribe', :as => 'subscribe'
+    match 'presentations/:id/subscribe_create' => 'presentations#subscribe_create', :as => 'subscribe_create'
+    match 'presentations/:id/subscribe_destroy' => 'presentations#subscribe_destroy', :as => 'subscribe_destroy'
     match 'presentations/:id/run' => 'presentations#run', :as => 'run_presentation'
 
     match 'welcome' => 'welcome#welcome'

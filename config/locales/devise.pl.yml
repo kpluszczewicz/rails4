@@ -1,0 +1,88 @@
+pl:
+  errors:
+    messages:
+      not_found: "nie znaleziono"
+      already_confirmed: "już został aktywowany"
+      not_locked: "nie był zablokowany"
+
+  devise:
+    failure:
+      unauthenticated: 'Musisz się zalogować lub zarejestrować aby kontynuować.'
+      unconfirmed: 'Musisz najpierw aktywować swoje konto aby kontynuować.'
+      locked: 'Twoje konto jest zablokowane.'
+      invalid: 'Niepoprawny email lub hasło.'
+      invalid_token: 'Niepoprawny token autentykujący.'
+      timeout: 'Twoja sesja wygasła, zaloguj się ponownie aby kontynuować.'
+      inactive: 'Twoje konto nie zostało jeszcze aktywowane.'
+    sessions:
+      signed_in: 'Użytkownik został zalogowany.'
+      signed_out: 'Użytkownik został wylogowany.'
+    passwords:
+      send_instructions: 'Wkrótce powinieneś otrzymać email z instrukcją jak ustawić nowe hasło.'
+      updated: 'Twoje hasło zostało zmienione. Jesteś już zalogowany.'
+    confirmations:
+      send_instructions: 'Wkrótce powinieneś otrzymać email z instrukcją jak aktywować swoje konto.'
+      confirmed: 'Twoje konto zostało aktywowane. Jesteś już zalogowany.'
+    registrations:
+      signed_up: 'Rejestracja zakończyła się sukcesem.'
+      updated: 'Twoje konto zostało pomyślnie zaktualizowane.'
+      destroyed: 'Papa! Twoje konto zostało usunięte. Mamy nadzieję, że spotkamy się jeszcze kiedyś!'
+    unlocks:
+      send_instructions: 'Wkrótce powinieneś otrzymać email z instrukcją jak odblokować swoje konto.'
+      unlocked: 'Twoje konto zostało odblokowane. Jesteś już zalogowany.'
+    mailer:
+      confirmation_instructions:
+        subject: 'Instrukcja aktywacji konta'
+      reset_password_instructions:
+        subject: 'Instrukcja ustawienia nowego hasła'
+      unlock_instructions:
+        subject: 'Instrukcja odblokowania konta'
+    title:
+      sign_in: "Logowanie"
+      sign_up: "Rejestracja"
+      edit: "Edytuj"
+      destroy: "Skasuj moje konto"
+      unlock: "Odblokuj konto"
+      password:
+        forgot: "Przypomnienie hasła"
+        change: "Zmiana hasła"
+      confirm: "Potwierdzenie konta"
+    form:
+      button_label:
+        sign_in: "Zaloguj się"
+        sign_up: "Zarejestruj się"
+        update: "Zmień"
+        unlock: "Odblokuj"
+        password:
+          forgot: "Wyślij hasło"
+          change: "Zmień hasło"
+        confirm: "Wyślij potwierdzenie"
+    link:
+      sign_in: "Zaloguj się"
+      sign_out: "Wyloguj"
+      sign_up: "Zarejestruj się"
+      recoverable: "Zapomniałeś hasło?"
+      confirmable: "Nie dotarła wiadomość z instrukcją potwierdzenia konta?"
+      lockable: "Nie dotarła wiadomość z instrukcją odblokowania konta?"
+      back: "Cofnij"
+      destroy:
+        name: "Skasuj konto"
+        confirm: "CZy jesteś pewny?"
+    hint:
+      password: "zostaw puste jeśli nie chcesz go zmienić"
+      current_password: "musisz podać aktualne hasło, aby potwierdzić zmianę"
+    mail:
+      hello: "Cześć"
+      welcome: "Witaj"
+      confirm:
+        body: "Możesz potwierdzić swoje konto poprzez link poniżej:"
+        link: "Potwiedz swoje konto"
+      reset:
+        body: "Ktoś wysłał wniosek o zmianę hasła i można to zrobić poprzez poniższy link."
+        link: "Zmień moje hasło"
+        hint1: "Jeśli nie żądasz zmiany hasła, zignoruj tę wiadomość."
+        hint2: "Twoje hasło nie zostanie zmienione dopóki nie naciśniesz na poniższy link."
+      unlock:
+        body1: "Twoje konto zostało zablokowane z powodu zbyt dużej ilości nieudanych prób logowania."
+        body2: "Kliknij poniższy link, aby odblokować konto:"
+        link: "Odblokuj moje konto"

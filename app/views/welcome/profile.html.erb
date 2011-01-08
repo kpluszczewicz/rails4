@@ -19,14 +19,19 @@
 
 <table>
   <tr>
-    <th>Access to presentation</th>
+    <th>Subscribe presentation</th>
+    <th></th>
     <th></th>
   </tr>
 
-  <%# <% @member_of.each do |presentation| %>%>
-  <%#   <tr>%>
-  <%#     <td><%= link_to "#{presentation.title}", presentation %></td>%>
-  <%#     <td><%= link_to "Unsubscribe", access_path(presentation), :confirm => "Are you sure?" %></td>%>
-  <%#   </tr>%>
-  <%# <% end %>%>
+  <% @subscribe.each do |presentation| %>
+    <tr>
+      <td><%= link_to "#{presentation.title}", presentation %></td>
+      <% if presentation.is_editable?(@user) %>
+        <td><%= link_to "Edit", edit_presentation_path(presentation) %></td>
+      <% end %>
+      <td><%= link_to "Run", run_presentation_path(presentation) %></td>
+      <td><%= link_to "Unsubscribe", subscribe_destroy_path(presentation), :confirm => "Are you sure?" %></td>
+    </tr>
+  <% end %>
 </table>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110107121920) do
+ActiveRecord::Schema.define(:version => 20110108130521) do
 
   create_table "presentations", :force => true do |t|
     t.string   "title"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20110107121920) do
     t.boolean  "visible",     :default => true,        :null => false
     t.boolean  "editable",    :default => false,       :null => false
     t.integer  "owner_id",    :default => 0,           :null => false
-    t.string   "access_key",  :default => "1234",      :null => false
+    t.string   "access_key",  :default => "",          :null => false
     t.string   "content"
   end
 

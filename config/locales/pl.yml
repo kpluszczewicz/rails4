@@ -29,7 +29,17 @@ pl:
       update:
         notice: "%{resource_name} został pomyślnie zaktualizowany."
       destroy:
-        notice: "%{resource_name} został pomyślnie usunięty"
+        notice: "%{resource_name} został pomyślnie usunięty."
+      subscribe:
+        create:
+          notice: "Subskrybcja została pomyślnie utworzona."
+          alert: "Nie poprawny klucz dostępu."
+        destroy:
+          notice: "Subskrybcja została pomyślnie usunieta."
+    before:
+      not_found: "%{resource_name} nie została odnaleziona."
+      subscribe: "Musisz się zapisać, aby zobaczyć %{resource_name}."
+      access_denied: "Dostęp zabroniony."
     sessions:
       failure: "Nieprawidłowa kombinacja loginu i hasła" 
     user:
@@ -157,10 +167,14 @@ pl:
         name: "Imię"
         password: "Hasło"
         password_confirmation: "Potwierdź hasło"
+        remember_me: "Zapamiętaj mnie"
       presentation:
         title: "Tytuł"
         description: "Opis"
         content: "Zawartość"
+        visible: "Prezentacja publiczna"
+        editable: "Prezentacja edytowalna przez użytkowników"
+        access_key: "Klucz dostępu"
     errors:
       template:
         header:
@@ -189,6 +203,7 @@ pl:
         odd: "musi być nieparzyste"
         even: "musi być parzyste"
         record_invalid: "Negatywne sprawdzenie poprawności: %{errors}"
+        must_have_owner: "%{resource_name} musi mieć właściciela."
 
   support:
     array:
@@ -199,3 +214,7 @@ pl:
       last_word_connector: " i "
     select:
       prompt: "Proszę wybrać:"
+  form:
+    presentation:
+      fieldset:
+        legend: "Opcje dostępne tylko dla właściciela"

@@ -16,11 +16,13 @@ class Presentation < ActiveRecord::Base
 
   validates_numericality_of :owner_id,
     :only_integer => true,
-    :greater_than => 0
+    :greater_than => 0,
+    :message => I18n.t('activerecord.errors.messages.must_have_owner', :resource_name => Presentation.human_name)
   validates_inclusion_of :visible,
     :in => [true, false]
   validates_inclusion_of :editable,
     :in => [true, false]
+  validates_presence_of :access_key
   validates_length_of :access_key,
     :minimum => 4,
     :maximum => 20
@@ -36,7 +38,7 @@ class Presentation < ActiveRecord::Base
   # end
 
   def is_owner?(user)
-    user == owner
+    return user == owner || new_record?
   end
 
   def is_visible?(user)
@@ -47,5 +49,9 @@ class Presentation < ActiveRecord::Base
   def is_editable?(user)
     return true if editable == true && members.exists?(user)
     return is_owner?(user)
+  end
+
+  def is_member?(user)
+    return members.exists?(user)
   end
 end

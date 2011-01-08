@@ -1,6 +1,23 @@
 <h2>Show</h2>
 
+<p>Title: <%= @presentation.title %></p>
+<p>Description: <%= @presentation.description %></p>
+
 <p>Status: <%= @presentation.status %></p>
 <p><%= @progress %></p>
 <p><%= @presentation.page %> / <%= @presentation.pages %></p>
+
+<% if @presentation.is_visible?(@user) %>
+  <%= link_to "Run", run_presentation_path(@presentation) %>
+<% end %>
+
+<% if @presentation.is_editable?(@user) %>
+  <td><%= link_to "Edit", edit_presentation_path(@presentation) %></td>
+<% end %>
+
+<% if @presentation.is_member?(@user) %>
+  <td><%= link_to "Unsubscribe", subscribe_destroy_path(@presentation), :confirm => "Are you sure?" %></td>
+<% else %>
+  <td><%= link_to "Subscribe", subscribe_path(@presentation) %></td>
+<% end %>
 
