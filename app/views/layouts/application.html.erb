@@ -3,7 +3,7 @@
   <head>
     <title>Rails4</title>
     <%= javascript_include_tag :defaults %>
-    <%= stylesheet_link_tag "styles", :media => "screen" %>
+    <%= stylesheet_link_tag "styles", :media => "screen, print" %>
     <%= csrf_meta_tag %>
   </head>
   <body>
@@ -11,7 +11,13 @@
       <header>
       <h1><a href="#">Monkey Presents: Presentations Hub</a></h1>
       <div id="login-up-corner">
-        <a href="#">login</a> or <a href="#">sign-up</a></div>
+        <% unless user_signed_in? -%>
+          <%= link_to t('v.sessions.signin'), new_user_session_path %> <%= t('nav.or') %> 
+          <%= link_to t('v.sessions.signup'), new_user_registration_path %>
+        <% else -%>
+          <%= link_to t('v.sessions.signout'), destroy_user_session_path %>
+        <% end -%>
+      </div>
       </header><hr>
 
       <section id="main">
@@ -26,26 +32,17 @@
 
       <aside id="sidebar">
       <nav>
-       <ul class="nav">
-        <li><%= link_to "Home", welcome_path %></li>
-        <li><%= link_to "Listing presentation", presentations_path %></li>
-        <% if user_signed_in? %>
-          <li><%= link_to "Profile (#{current_user.email})", profile_path %></li>
-          <li><%= link_to "New presentation", new_presentation_path %></li>
-          <li><%= link_to "Sign out", destroy_user_session_path %></li>
-        <% else %>
-          <li><%= link_to "Sign in", new_user_session_path %></li>
-          <li><%= link_to "Sign up", new_user_registration_path %></li>
-        <% end %>
-        <li><%= link_to "About us", aboutus_path %></li>
-      </ul>
-
-      <h3>jakies linki</h3>
-      <ul>
-        <li><a href="http://css3generator.com">css3generator</a></li>
-        <li><a href="http://www.w3schools.com">w3schools</a></li>
-        <li><a href="http://www.css3maker.com">css3maker</a></li>
-        <li><a href="http://css3please.com/">css3please</a></li>
+      <ul class="nav">
+        <li><%= link_to t('nav.home'), welcome_path %></li>
+        <% if user_signed_in? -%>
+          <li><%= link_to t("nav.profile"), profile_path %></li>
+        <% end -%>
+        <li><%= link_to t('nav.about'), aboutus_path %></li>
+        <br />
+      <% if user_signed_in? %>
+          <li><%= link_to t('nav.new_presentation'), new_presentation_path %></li>
+          <li><%= link_to t('nav.list_presentation'), presentations_path %></li>
+      <% end %>
       </ul>
 
       </nav>

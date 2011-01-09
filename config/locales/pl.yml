@@ -12,16 +12,25 @@ pl:
     help: "Pomoc"
     signout: "Wyloguj"
     signin: "Zaloguj"
+    signup: "Zakładanie konta"
     about: "O nas"
     contact: "Kontakt"
+    new_presentation: "Nowa prezentacja"
+    list_presentation: "Moje prezentacje"
     delete: "Usuń"
     edit: "Edytuj"
     confirm: "Jesteś pewny?"
+    or: "lub"
   v:
     sessions:
       signin: "Zaloguj się"
       new:  "Jesteś nowy?"
       signup: "Załóż konto!"
+      forgot: "Zapomniałeś hasła?"
+      leave: "(leave blank if you don't want to change it)"
+      needcurrentpassword: "(we need your current password to confirm your changes)"
+      update: "Wprowadź zmiany"
+      signout: "Wyloguj"
   flash:
     actions:
       create:
