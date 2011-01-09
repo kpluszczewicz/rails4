@@ -1,12 +1,11 @@
 class PresentationsController < ApplicationController
-  load_and_authorize_resource
   before_filter :presentation_not_found, :except => [ :index, :new, :create ]
   before_filter :presentation_visible, :only => [ :show, :run ]
   before_filter :presentation_editable, :only => [ :edit, :update ]
   before_filter :presentation_destroy, :only => [ :destroy ]
 
   # note:
-  # instancja '@presentation = Presentation.find(params[:id])' dla akcji poza
+  # instancja '@presentation = Presentation.find(params[:id])' dla akcji poza 
   # 'index, new, create' znajduje sie w metodzie 'presentation_not_found'
 
   def index
@@ -15,6 +14,7 @@ class PresentationsController < ApplicationController
 
   def show
     @user = current_user
+    @progress = (@presentation.page.to_f() / @presentation.pages.to_f() * 100.0)
   end
 
   def new
@@ -24,12 +24,12 @@ class PresentationsController < ApplicationController
 
   def create
     @user = current_user
-    @presentation = @user.presentations.build(params[:presentation])
+    @presentation = @user.presentations.build(params[:presentation]) 
     if @presentation.save
       flash[:notice] = t('flash.actions.create.notice', :resource_name => Presentation.human_name)
       redirect_to profile_path
     else
-      render 'new'
+      render 'new' 
     end
   end
 

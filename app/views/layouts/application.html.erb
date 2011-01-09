@@ -1,18 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Rails4</title>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
-  </header>
-    <h1>Monkey Presents</h1>
-  </header>
-  <nav>
-    <ul>
-      <li><%= link_to "Home", welcome_path %></li>
-      <li><%= link_to "Listing presentation", presentations_path %></li>
+  <head>
+    <title>Rails4</title>
+    <%= javascript_include_tag :defaults %>
+    <%= stylesheet_link_tag "styles", :media => "screen" %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+      <h1><a href="#">Monkey Presents: Presentations Hub</a></h1>
+      <div id="login-up-corner">
+        <a href="#">login</a> or <a href="#">sign-up</a></div>
+      </header><hr>
+
+      <section id="main">
+      <section id="content">
+      <% flash.each do |key, value| -%>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end -%>
+
+      <%= yield %>
+      <%= debug(params) if Rails.env.development?  %>
+      </section>
+
+      <aside id="sidebar">
+      <nav>
+       <ul class="nav">
+        <li><%= link_to "Home", welcome_path %></li>
+        <li><%= link_to "Listing presentation", presentations_path %></li>
         <% if user_signed_in? %>
           <li><%= link_to "Profile (#{current_user.email})", profile_path %></li>
           <li><%= link_to "New presentation", new_presentation_path %></li>
@@ -21,22 +37,53 @@
           <li><%= link_to "Sign in", new_user_session_path %></li>
           <li><%= link_to "Sign up", new_user_registration_path %></li>
         <% end %>
-      <li><%= link_to "About us", aboutus_path %></li>
-    </ul>
-  </nav>
+        <li><%= link_to "About us", aboutus_path %></li>
+      </ul>
 
-  <section>
-  <% flash.each do |key, value| -%>
-    <div class="flash <%= key %>"><%= value %></div>
-  <% end -%>
+      <h3>jakies linki</h3>
+      <ul>
+        <li><a href="http://css3generator.com">css3generator</a></li>
+        <li><a href="http://www.w3schools.com">w3schools</a></li>
+        <li><a href="http://www.css3maker.com">css3maker</a></li>
+        <li><a href="http://css3please.com/">css3please</a></li>
+      </ul>
 
-  <%= yield %>
-  </section>
+      </nav>
+      </aside><!-- end of sidebar -->
+      </section><!-- end of #main content and sidebar -->
 
-  <footer>
-    <p>Copyright 2011</p>
-  </footer>
+      <footer>
+      <section id="footer-area">
 
-  <%= debug(params) if Rails.env.development?  %>
-</body>
+      <section id="footer-outer-block">
+      <aside class="footer-segment">
+      <h4>Fajne</h4>
+      <ul>
+        <li><a href="http://css3generator.com">css3generator.com</a></li>
+        <li><a href="http://www.w3schools.com">www.w3schools.com</a></li>
+        <li><a href="http://www.css3maker.com">css3maker</a></li>
+      </ul>
+      </aside><!-- end of #second footer segment -->
+
+      <aside class="footer-segment">
+      <h4>Cool</h4>
+      <ul>
+        <li><a href="http://joemonster.org">Joe</a></li>
+        <li><a href="http://rotten.com">RottenDOTcom</a></li>
+        <li><a href="http://www.blender.org">Blender</a></li>
+      </ul>
+      </aside><!-- end of #third footer segment -->
+
+      <aside class="footer-segment">
+      <h4>:)</h4>
+      <p>&copy; 2011 <a href="http://sigma.ug.edu.pl/~awieruck">olkowo</a> Have fun. Page created on base of Bubblecosm template.</p>
+      </aside><!-- end of #fourth footer segment -->
+
+      </section><!-- end of footer-outer-block -->
+
+      </section><!-- end of footer-area -->
+      </footer>
+
+    </div>
+  </body>
 </html>
