@@ -756,7 +756,7 @@ ul.nav {
 	top: 0px;
 	left: 0px;
 	padding: 60px 0 60px 0;
-	background: url(shad2.png) no-repeat;
+	background: url(../images/shad2.png) no-repeat;
 	-webkit-background-size: 50% 100%;
 	float: left;
 
@@ -771,7 +771,7 @@ li {
 ul.nav li a {
 	-webkit-transition: all 0.3s ease-out;
 	-moz-transition: all 0.3s ease-out;  
-	background: #cbcbcb url(border.png) no-repeat;
+	background: #cbcbcb url(../images/border.png) no-repeat;
 	//color: #174867;
 	padding: 7px 15px 7px 15px;
 	-moz-border-radius-topright: 10px;
