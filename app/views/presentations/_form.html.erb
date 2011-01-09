@@ -1,8 +1,8 @@
 <%= simple_form_for(@presentation) do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
   <%= f.input :title %>
-  <%= f.input :description, :as => :text %>
-  <%= f.input :content, :as => :text %>
+  <%= f.input :description, :input_html => { :class => "wmd-ignore"} %>
+  <%= f.input :content, :as => :text, :input_html => { :id => "inputPane" }  %>
   <% if @presentation.is_owner?(@user) %>
     <fieldset>
       <legend><%= t('form.presentation.fieldset.legend') %></legend>
@@ -13,3 +13,8 @@
   <% end %>
   <%= f.button :submit %>
 <% end %>
+
+<%= javascript_include_tag 'showdown.js' %>
+<%= javascript_include_tag 'showdown-gui.js' %>
+<%= enable_wmd %>
+<div id="slidesBox"></div>
