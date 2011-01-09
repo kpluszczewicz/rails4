@@ -808,3 +808,21 @@ form textarea {
   width: 500px;
   height: 300px;
 }
+
+/********************* SLIDES ******************************/
+#slidesBox {
+ width: 620px;
+ margin: 10px 20px 30px 10px;
+ border: 1px solid black; 
+ float: left;
+}
+
+.slide {
+ float: left;
+ margin: 10px 0px 10px 9px;
+ width: 295px;
+ height: 218px;
+ border: 1px solid black;
+ background: white;
+ font-size: 7px;
+}
