@@ -27,7 +27,7 @@ class Presentation < ActiveRecord::Base
     :minimum => 4,
     :maximum => 20
 
-  validates :content, :presence => true 
+  validates :content, :presence => true
 
   # def self.save_file(upload)
   #   file = upload.filename.original_filename

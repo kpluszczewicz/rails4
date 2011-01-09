@@ -15,6 +15,7 @@ gem 'open4'
 gem 'albino'
 gem 'nokogiri'
 gem 'devise'
+gem 'cancan'
 
 # Use unicorn as the web server
 # gem 'unicorn'
