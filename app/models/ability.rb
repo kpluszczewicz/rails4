@@ -17,7 +17,9 @@ class Ability
                 presentation.try(:owner) == user
             end
             # tworzenie
-            can :create, Presentation
+            if not user.email.empty?
+                can :create, Presentation
+            end
         end
     end
 end
