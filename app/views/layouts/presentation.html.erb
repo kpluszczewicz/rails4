@@ -3,9 +3,7 @@
     <title>Prezentacja</title>
 
     <%= stylesheet_link_tag 'slides.css', :media => "screen" %>
-    <%= javascript_include_tag 'jquery-1.3.2.js' %>
-    <%= javascript_include_tag 'jquery.easing.js' %>
-    <%= javascript_include_tag 'jquery.hash-changed.js' %>
+    <%= javascript_include_tag 'faye-browser' %>
 
   </head>
   <body>
@@ -14,15 +12,9 @@
     </div>
     <div id="slides">
       <div id="track">
-        <% @slides.each_with_index do |slide, idx| %>
-          <div class="">
-          <div id="slide-<%= idx %>" class="content">
-            <%= slide.html.html_safe %>
-          </div>
-        </div>
-        <% end %>
+        <%= yield %>
       </div>
     </div>
-    <%= render 'shared/slides' %>
+    <%= render @additionals %>
   </body>
 </html>

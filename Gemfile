@@ -16,6 +16,9 @@ gem 'albino'
 gem 'nokogiri'
 gem 'devise'
 gem 'cancan'
+gem 'faye'
+gem 'eventmachine'
+gem 'rack'
 
 # Use unicorn as the web server
 # gem 'unicorn'

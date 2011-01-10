@@ -1,6 +1,7 @@
 (function($) {
   jQuery.easing.def = "easeOutQuart"; // For tweening
 
+
   var allSlides = function() {
     return $('#slides #track > div');
   }

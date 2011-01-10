@@ -1,0 +1,7 @@
+<% @slides.each_with_index do |slide, idx| %>
+  <div class="">
+    <div id="slide-<%= idx %>" class="content">
+      <%= slide.html.html_safe %>
+    </div>
+  </div>
+<% end %>

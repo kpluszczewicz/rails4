@@ -8,6 +8,7 @@ Rails4::Application.routes.draw do
     match 'presentations/:id/subscribe_create' => 'presentations#subscribe_create', :as => 'subscribe_create'
     match 'presentations/:id/subscribe_destroy' => 'presentations#subscribe_destroy', :as => 'subscribe_destroy'
     match 'presentations/:id/run' => 'presentations#run', :as => 'run_presentation'
+    match 'presentations/:id/watch' => 'presentations#watch', :as => 'watch_presentation'
 
     match 'welcome' => 'welcome#welcome'
     match 'profile' => 'welcome#profile'

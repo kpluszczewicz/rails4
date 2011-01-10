@@ -1,0 +1,62 @@
+<%= javascript_include_tag 'jquery-1.3.2.js' %>
+<%= javascript_include_tag 'jquery.easing.js' %>
+<%= javascript_include_tag 'jquery.hash-changed.js' %>
+
+<script type="text/javascript">
+  var client = new Faye.Client('http://localhost:8000/submonkey');
+  var suffix = "<%= @presentation_id %>"
+  client.subscribe('/presentation-' + suffix, function(message) {
+      var slideholder = document.getElementById("slideholder");
+      slideholder.innerHTML = message.text;
+  });
+var instructions = document.getElementById("instructions");
+instructions.style.visibility = "hidden"
+
+  var slideDimensions = function() {
+    return {
+      width: $(window).width(),
+      height: $(window).height()
+    }
+  }
+
+  var setSlideDimensions = function() {
+    var dimensions = slideDimensions();
+
+    $('#slides').height(dimensions.height);
+    $('#slides').width(dimensions.width);
+
+    allSlides().height(dimensions.height);
+    allSlides().width(dimensions.width);
+  }
+  var formatGist = function() {
+    $('.gist-meta').css({ fontSize: '12px' });
+    $('.gist .gist-file .gist-data pre').css({
+      padding: '0.4em',
+      overflow: 'hidden',
+      fontSize: '26px'
+    });
+
+    allSlides().find('.content').each(verticalAlign);
+  }
+
+  var allSlides = function() {
+    return $('#slides #track > div');
+  }
+
+  var verticalAlign = function() {
+    var dimensions = slideDimensions();
+    var margin = (dimensions.height - $(this).height()) / 2;
+    $(this).css({ paddingTop: margin + 'px' });
+  }
+
+  var adjustSlides = function() {
+    var dimensions = slideDimensions();
+
+    setSlideDimensions();
+    formatGist();
+  }
+
+$(window).bind('resize', function() { adjustSlides(); });
+
+adjustSlides();
+</script>

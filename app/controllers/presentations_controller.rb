@@ -81,6 +81,16 @@ class PresentationsController < ApplicationController
 
     @raw = @content =~ /\A!SLIDE/ ? @content : "!SLIDE\n#{@content}"
     @slides = slides
+    @additionals = "shared/slides" 
+    @presentation_id = params[:id]  
+    render :layout => 'presentation'
+  end
+
+  def watch
+    @slide_box = Slide.new('')
+    @slides = [ @slide_box ] 
+    @additionals = "shared/faye_sub" 
+    @presentation_id = params[:id]  
     render :layout => 'presentation'
   end
 
