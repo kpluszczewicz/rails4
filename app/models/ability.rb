@@ -16,6 +16,8 @@ class Ability
             can :manage, Presentation do |presentation|
                 presentation.try(:owner) == user
             end
+            # tworzenie
+            can :create, Presentation
         end
     end
 end
