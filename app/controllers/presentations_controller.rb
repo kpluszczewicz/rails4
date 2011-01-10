@@ -3,6 +3,7 @@ class PresentationsController < ApplicationController
   before_filter :presentation_visible, :only => [ :show, :run ]
   before_filter :presentation_editable, :only => [ :edit, :update ]
   before_filter :presentation_destroy, :only => [ :destroy ]
+
   load_and_authorize_resource
 
   # note:
