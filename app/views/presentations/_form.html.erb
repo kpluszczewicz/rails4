@@ -2,19 +2,23 @@
   <%= render 'shared/error_messages', :object => f.object %>
   <%= f.input :title %>
   <%= f.input :description, :input_html => { :class => "wmd-ignore"} %>
-  <%= f.input :content, :as => :text, :input_html => { :id => "inputPane", :class => "input-slides" }  %>
   <% if @presentation.is_owner?(@user) %>
     <fieldset>
       <legend><%= t('form.presentation.fieldset.legend') %></legend>
-      <%= f.input :visible, :as => :radio %>
-      <%= f.input :editable, :as => :radio %>
+      <%= f.input :visible, :as => :boolean %>
+
+      <%= f.input :editable, :as => :boolean %>
+
       <%= f.input :access_key %>
     </fieldset>
   <% end %>
+  <%= f.input :content, :as => :text, :input_html => { :id => "inputPane", :class => "input-slides" }  %>
   <%= f.button :submit %>
 <% end %>
 
 <%= javascript_include_tag 'showdown.js' %>
 <%= javascript_include_tag 'showdown-gui.js' %>
 <%= enable_wmd %>
+
+<h2 id="preview-heading">Podląd slajdów</h2>
 <div id="slidesBox"></div>
