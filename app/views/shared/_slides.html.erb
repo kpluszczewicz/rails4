@@ -89,7 +89,7 @@
           event.stopPropagation();
         }
 
-        location.href = '<%= session[:return_to] %>';
+        location.href = '<%= session[:return_to] || '/' %>';
       } else {
         $('#instructions').slideUp(100);
         setIndex(getIndex() + dir);
