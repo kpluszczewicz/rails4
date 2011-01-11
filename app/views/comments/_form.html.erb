@@ -1,0 +1,4 @@
+<%= simple_form_for [@presentation, @presentation.comments.build] do |f| %>
+  <%= f.input :body %>
+  <%= f.button :submit %>
+<% end %>

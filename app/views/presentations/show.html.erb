@@ -17,3 +17,10 @@
   <td><%= link_to "Subscribe", subscribe_path(@presentation) %></td>
 <% end %>
 
+<% if @presentation.comments.any? %>
+  <%= render @presentation.comments %>
+<% end %>
+
+<p>Add comment</p>
+<%= render 'comments/form' %>
+

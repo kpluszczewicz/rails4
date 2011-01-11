@@ -19,6 +19,7 @@ gem 'cancan'
 gem 'faye'
 gem 'eventmachine'
 gem 'rack'
+gem 'acts-as-taggable-on'
 
 # Use unicorn as the web server
 # gem 'unicorn'

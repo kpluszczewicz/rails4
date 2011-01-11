@@ -1,0 +1,7 @@
+<tr>
+      <td><%= link_to "#{presentation.title}", presentation %></td>
+      <td><%= presentation.description %></td>
+      <% if not presentation.tag_list.empty? %>
+        <td>Tags: <%= presentation.tag_list %></td>
+      <% end %>
+</tr>

@@ -1,4 +1,7 @@
 class Presentation < ActiveRecord::Base
+  acts_as_taggable_on :tags
+  ActsAsTaggableOn::TagList.delimiter = " "
+
   belongs_to :owner,
     :class_name => "User",
     :foreign_key => "owner_id"
@@ -6,13 +9,7 @@ class Presentation < ActiveRecord::Base
     :class_name => "User",
     :foreign_key => "presentation_id",
     :association_foreign_key => "user_id"
-
-  # title:string
-  # description:text
-  # visible:boolean
-  # editable:boolean
-  # access_key:string
-  # content: text
+  has_many :comments, :dependent => :destroy
 
   validates_numericality_of :owner_id,
     :only_integer => true,
@@ -25,14 +22,6 @@ class Presentation < ActiveRecord::Base
 
   validates :access_key, :presence => { :unless => 'visible', :value => true }, :length => { :unless => 'visible', :value => true, :minimum => 4, :maximum => 20 }
   validates :content, :presence => true
-
-  # def self.save_file(upload)
-  #   file = upload.filename.original_filename
-  #   dir = "public/presentations/#{upload.id}/"
-  #   Dir.mkdir(dir) unless File.directory?(dir)
-  #   path = File.join(dir, file)
-  #   File.open(path, "wb") { |f| f.write(upload.filename.read) }
-  # end
 
   def is_owner?(user)
     return user == owner || new_record?
@@ -50,5 +39,9 @@ class Presentation < ActiveRecord::Base
 
   def is_member?(user)
     return members.exists?(user)
+  end
+
+  def self.search(query)
+    where("title like ?", "%#{query}%")
   end
 end

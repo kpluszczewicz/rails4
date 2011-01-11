@@ -1,0 +1,11 @@
+<p>Author: <br> 
+<% if not comment.user.nil? %>
+  <%= comment.user.email %></p>
+<% else %>
+  Anonim
+<% end %>
+<div class="comment">
+  <b>Body:</b> <%= comment.body %>
+</div>
+<%= link_to "Delete", [comment.presentation, comment], :confirm => "Are you sure?", :method => :delete %>
+
