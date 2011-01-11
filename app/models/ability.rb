@@ -16,6 +16,10 @@ class Ability
             can :manage, Presentation do |presentation|
                 presentation.try(:owner) == user
             end
+            # tworzenie
+            if not user.email.empty?
+                can :create, Presentation
+            end
         end
     end
 end

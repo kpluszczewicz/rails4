@@ -22,11 +22,8 @@ class Presentation < ActiveRecord::Base
     :in => [true, false]
   validates_inclusion_of :editable,
     :in => [true, false]
-  validates_presence_of :access_key
-  validates_length_of :access_key,
-    :minimum => 4,
-    :maximum => 20
 
+  validates :access_key, :presence => { :unless => 'visible', :value => true }, :length => { :unless => 'visible', :value => true, :minimum => 4, :maximum => 20 }
   validates :content, :presence => true
 
   # def self.save_file(upload)
