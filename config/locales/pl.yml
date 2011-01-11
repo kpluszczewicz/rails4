@@ -15,7 +15,7 @@ pl:
     about: "O nas"
     contact: "Kontakt"
     new_presentation: "Nowa prezentacja"
-    list_presentation: "Moje prezentacje"
+    list_presentation: "Prezentacje"
     delete: "Usuń"
     edit: "Edytuj"
     confirm: "Jesteś pewny?"
@@ -61,7 +61,7 @@ pl:
       subscribe: "Musisz się zapisać, aby zobaczyć %{resource_name}."
       access_denied: "Dostęp zabroniony."
     sessions:
-      failure: "Nieprawidłowa kombinacja loginu i hasła" 
+      failure: "Nieprawidłowa kombinacja loginu i hasła"
     user:
       update:
         success: "Pomyślnie uaktualniono profil"

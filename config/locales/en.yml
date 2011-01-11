@@ -15,7 +15,7 @@ en:
     about: "About us"
     contact: "Contact"
     new_presentation: "New Presentation"
-    list_presentation: "My presentations"
+    list_presentation: "Presentations"
     delete: "Usuń"
     edit: "Edytuj"
     confirm: "Are you sure"
@@ -42,4 +42,4 @@ en:
     about:
     profile:
 
-  
+
