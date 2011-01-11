@@ -1,4 +1,7 @@
 class Presentation < ActiveRecord::Base
+  cattr_reader    :per_page
+  @@per_page = 10
+
   belongs_to :owner,
     :class_name => "User",
     :foreign_key => "owner_id"

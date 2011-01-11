@@ -42,6 +42,7 @@
         <% if user_signed_in? -%>
           <li><%= link_to t("nav.profile"), profile_path %></li>
         <% end -%>
+        <li><%= link_to t('nav.show_public'), index_public_presentations_path %></li>
         <li><%= link_to t('nav.about'), aboutus_path %></li>
         <br />
       <% if user_signed_in? %>
