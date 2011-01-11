@@ -14,6 +14,7 @@ Rails4::Application.routes.draw do
     match 'profile' => 'welcome#profile'
     match 'aboutus' => 'welcome#aboutus'
   end
+  match 'backend/colorize' => 'backend#colorize'
 
   # root :to => "welcome#welcome"
   match '/(:locale)' => 'welcome#welcome', :as => :root

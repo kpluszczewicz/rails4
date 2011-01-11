@@ -18,6 +18,11 @@
         <% else -%>
           <%= link_to t('v.sessions.signout'), destroy_user_session_path %>
         <% end -%>
+
+        <div id="languages">
+          <%= link_to image_tag("pl.png"), url_for(params.merge({ :locale => "pl" })) %>
+          <%= link_to image_tag("gb.png"), url_for(params.merge({ :locale => "en" })) %>
+        </div>
       </div>
       </header><hr>
 
@@ -28,7 +33,6 @@
       <% end -%>
 
       <%= yield %>
-      <%= debug(params) if Rails.env.development?  %>
       </section>
 
       <aside id="sidebar">
@@ -55,25 +59,25 @@
 
       <section id="footer-outer-block">
       <aside class="footer-segment">
-      <h4>Fajne</h4>
+      <h4>Rails</h4>
       <ul>
-        <li><a href="http://css3generator.com">css3generator.com</a></li>
-        <li><a href="http://www.w3schools.com">www.w3schools.com</a></li>
-        <li><a href="http://www.css3maker.com">css3maker</a></li>
+        <li><a href="http://railstutorial.org">railstutorial.com</a></li>
+        <li><a href="http://www.railscasts.com">railscasts.com</a></li>
+        <li><a href="http://inf.ug.edu.pl/~wbzyl">WBzyl on rails:)</a></li>
       </ul>
       </aside><!-- end of #second footer segment -->
 
       <aside class="footer-segment">
-      <h4>Cool</h4>
+      <h4>Meet Downs!</h4>
       <ul>
-        <li><a href="http://joemonster.org">Joe</a></li>
-        <li><a href="http://rotten.com">RottenDOTcom</a></li>
-        <li><a href="http://www.blender.org">Blender</a></li>
+        <li><a href="daringfireball.net/projects/markdown/">Markdown</a></li>
+        <li><a href="http://attacklab.net/showdown/">Showdown</a></li>
+        <li><a href="https://github.com/nakajima/slidedown">Slidedown</a></li>
       </ul>
       </aside><!-- end of #third footer segment -->
 
       <aside class="footer-segment">
-      <h4>:)</h4>
+      <h4> </h4>
       <p>&copy; 2011 <a href="http://sigma.ug.edu.pl/~awieruck">olkowo</a> Have fun. Page created on base of Bubblecosm template.</p>
       </aside><!-- end of #fourth footer segment -->
 

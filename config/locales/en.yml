@@ -2,4 +2,44 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  appname: "Monkey Presents"
+  nav:
+    home: "Home"
+    users: "Users"
+    profile: "Profile"
+    settings: "Settings"
+    help: "Help"
+    signout: "Sign out"
+    signin: "Sign in"
+    signup: "Sign up"
+    about: "About us"
+    contact: "Contact"
+    new_presentation: "New Presentation"
+    list_presentation: "My presentations"
+    delete: "Usuń"
+    edit: "Edytuj"
+    confirm: "Are you sure"
+    or: "or"
+  v:
+    sessions:
+      signin: "Sign in!"
+      new:  "Are You new?"
+      signup: "Create an account"
+      forgot: "Forgot password?"
+      leave: "(leave blank if you don't want to change it)"
+      needcurrentpassword: "(we need your current password to confirm your changes)"
+      update: "Wprowadź zmiany"
+      signout: "Wyloguj"
+  welcome:
+    welcome:
+      hello: "Create instantly simple presentations with syntax highlighting!"
+      c1: "Make an account"
+      c2: "Create Your presentations easily with markdown"
+      c3: "Share your slides with others!"
+      h1: "Write slides in markdown"
+      h2: "Highlight Your code!"
+      h3: "Show your slides to others in realtime!"
+    about:
+    profile:
+
+  

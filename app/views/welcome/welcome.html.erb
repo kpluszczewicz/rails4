@@ -1,2 +1,54 @@
-<h2>Welcome#welcome</h2>
-<p>Find me in app/views/welcome/welcome.html.erb</p>
+<h1><%= t('welcome.welcome.hello') %></h1>
+
+
+<h2><%= t('welcome.welcome.h1') %></h2>
+
+<div class="plain-code">
+  <pre>
+!SLIDE
+
+# To jest nagłówek pierwszego slajdu
+Prawda, że fajny?
+
+!SLIDE
+
+# Na tym slajdzie jest lista
+* coś po raz pierwszy
+* coś po raz drugi
+
+</pre>
+</div>
+
+<br />
+<h2><%= t('welcome.welcome.h2') %></h2>
+<div class="plain-code">
+  @@@ ruby<br />
+  def have_fun(pubs)<br />
+  @fun = 0<br />
+  <br />
+  begin<br />
+  pubs.each { |p| self.visit(p) }<br />
+  end while @fun < 100<br />
+  return happy && relaxed<br />
+  end<br />
+  @@@<br />
+</div>
+<div id="becomes">becomes...</div>
+<div id="formatted-code" class="code">
+<pre>
+<span class="k">def</span> <span class="nf">have_fun</span><span class="p">(</span><span class="n">pubs</span><span class="p">)</span>
+  <span class="vi">@fun</span> <span class="o">=</span> <span class="mi">0</span>
+
+  <span class="k">begin</span>
+    <span class="n">pubs</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="nb">p</span><span class="o">|</span> <span class="nb">self</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="nb">p</span><span class="p">)</span> <span class="p">}</span>
+  <span class="k">end</span> <span class="k">while</span> <span class="vi">@fun</span> <span class="o">&lt;</span> <span class="mi">100</span>
+  <span class="k">return</span> <span class="n">happy</span> <span class="o">&amp;&amp;</span> <span class="n">relaxed</span>
+<span class="k">end</span>
+</pre>
+</div>
+
+<h2><%= t('welcome.welcome.h3') %></h2>
+<p>Widzowie mogą oglądać Twoje slajdy na bieżąco, gdy Ty przewijasz! Wprawdź tę funkcję!</p>
+
+<br />
+

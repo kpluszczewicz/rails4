@@ -2,8 +2,7 @@
 # by Jacek Becela (jacek.becela@gmail.com, http://github.com/ncr)
 
 pl:
-  general:
-    appname: "Kontakty"
+  appname: "Kontakty"
   nav:
     home: "Dom"
     users: "Użytkownicy"
@@ -31,6 +30,18 @@ pl:
       needcurrentpassword: "(we need your current password to confirm your changes)"
       update: "Wprowadź zmiany"
       signout: "Wyloguj"
+  welcome:
+    welcome:
+      hello: "Twórz błyskawicznie proste prezentacje!"
+      c1: "Załóż konto"
+      c2: "Twórz szybko i łatwo prezentacje w języku markdown"
+      c3: "Pokaż innym swoje slajdy!"
+      h1: "Pisz slajdy w markdown"
+      h2: "Pokoloruj swój kod!"
+      h3: "Prezentuj slajdy w trybie realtime!"
+    about:
+    profile:
+
   flash:
     actions:
       create:

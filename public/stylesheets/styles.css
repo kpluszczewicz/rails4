@@ -197,11 +197,6 @@ border-bottom-right-radius: 0px;
 border-bottom-left-radius: 0px; 
 }
 
-header img {
-clear: both;
-display: block;
-}
-
 header>h1 {
 float: left;
 margin: 0 0 18px 10px;
@@ -209,6 +204,31 @@ width: 600px;
 font-size: 54px;
 line-height: 1em;
 }
+
+#languages {
+  margin-top: 90px;
+}
+
+.plain-code {
+  float: left;
+  font-size: 11px;
+  margin-left: 50px;
+}
+#becomes {
+  margin-top: 50px;
+  margin-right: 50px;
+  margin-left: 30px;
+
+  font-weight: bold;
+  float: left;
+  margin-bottom: 150px;
+}
+#formatted-code {
+  margin-top: 13px;
+  float: left;
+}
+
+
 
 header>h1 a {
 color: #000;

@@ -1,0 +1,1 @@
+!SLIDE\n # This is my talk\n \n !SLIDE\n \n ## I hope you enjoy it\n \n !SLIDE code\n \n def foo\n :bar\n end\n \n !SLIDE\n \n Google is [here](http://google.com)\n \n !SLIDE\n \n # Questions?\n

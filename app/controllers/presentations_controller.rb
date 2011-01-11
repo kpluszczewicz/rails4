@@ -53,6 +53,10 @@ class PresentationsController < ApplicationController
     @user = current_user
   end
 
+  def colorize
+    
+  end
+
   #TODO
   def subscribe
 
@@ -92,6 +96,7 @@ class PresentationsController < ApplicationController
     @presentation_id = params[:id]
     render :layout => 'presentation'
   end
+
 
   private
 

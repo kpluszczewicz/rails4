@@ -117,16 +117,73 @@ function startGui() {
 //	Conversion
 //
 
+var divIdx = 0;
+var codeSnippets = [];
+
+var idxFun = function() {
+  return '<div id="to-pygmentize-' + (divIdx++) + '"></div>';
+};
+
+function colorizeCode(code, urlId) {
+  new Ajax.Request('/backend/colorize', {
+    method: 'get',
+      parameters: { id : urlId, code: code },
+      onSuccess: function(transport) {
+        var response = transport.responseText;
+        var div = document.getElementById("to-pygmentize-"+urlId);
+        div.innerHTML = response;
+      }
+  });
+};
+
 function convertText() {
 	// get input text
 	var text = inputPane.value;
-	
-	// if there's no change to input, cancel conversion
+        //var regex = /@@@\s+[a-z]+(\n|\r\n)([^@][^@][^@]|\n|\r)+@@@(\r\n|\n|$)/gm;
+        //var newCodeSnippets;
+
 	if (text && text == lastText) {
 		return;
 	} else {
 		lastText = text;
 	}
+
+        //newCodeSnippets = text.match(regex);
+        //if (newCodeSnippets.length != codeSnippets.length) {
+          //alert("inna ilość");
+          //[> colorize all <]
+          //var currentIdx = divIdx;
+          //if ( newCodeSnippets.length != 0 ) {
+            //text = text.replace(regex, idxFun);
+            //for(var i=0; i< newCodeSnippets.length; ++i) {
+              //var urlId = currentIdx + i;
+              //colorizeCode(newCodeSnippets[i], urlId);
+            //}
+          //} 
+        //} else {
+          //for(var i = 0; i < newCodeSnippets.length; ++i) {
+            //if (codeSnippets[i] != newCodeSnippets[i]) {
+              //var divs = $$("div.highlight");
+              //[> colorize only one snippet, but it's exists <]
+              //colorizeCode(newCodeSnippets[i], divs[i].parentNode.readAttribute("id").match(/\d+/)[0]);
+            //} 
+          //}
+          //var divs = $$('div.highlight');
+          ////alert(divs.length);
+          //var replaceFunction = function() {
+            //var j = 0 
+              //return function() {
+                //var parent = divs[j++].parentNode;
+                //var elId = parent.readAttribute("id");
+                ////alert('<div id="' + elId + '">' + parent.innerHTML + '</div>');
+                //return '<div id="' + elId + '">' + parent.innerHTML + '</div>';
+              //}  
+          //}
+          //text = text.replace(regex, replaceFunction());
+        //}
+        //codeSnippets = newCodeSnippets;
+
+	// if there's no change to input, cancel conversion
 
 	var startTime = new Date().getTime();
 
@@ -135,6 +192,9 @@ function convertText() {
 	markdownTab = []
 	for(var i=0; i<textTab.length; ++i) {
 	    if (textTab[i] !== "") {
+                //alert(textTab[i].match(regex).length);
+
+                /* ajax call */
 		markdownTab.push(converter.makeHtml(textTab[i]));
 	    }
 	}
@@ -159,7 +219,7 @@ function convertText() {
 
 	    // clear the slides box
 	    slidesBox.innerHTML = '';
-	    for(var i= markdownTab.length -1; i>=0; --i) {
+	    for(var i= markdownTab.length - 1; i >= 0 ; --i) {
 		div = document.createElement("div");
 		div.innerHTML = converter.makeHtml(markdownTab[i]);
 		div.setAttribute('class', 'slide');
