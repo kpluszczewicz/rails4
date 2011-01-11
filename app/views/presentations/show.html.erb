@@ -3,10 +3,6 @@
 <p>Title: <%= @presentation.title %></p>
 <p>Description: <%= @presentation.description %></p>
 
-<p>Status: <%= @presentation.status %></p>
-<p><%= @progress %></p>
-<p><%= @presentation.page %> / <%= @presentation.pages %></p>
-
 <% if @presentation.is_visible?(@user) %>
   <%= link_to "Run", run_presentation_path(@presentation) %>
 <% end %>
