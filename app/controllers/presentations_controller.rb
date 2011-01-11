@@ -16,7 +16,6 @@ class PresentationsController < ApplicationController
 
   def show
     @user = current_user
-    @progress = (@presentation.page.to_f() / @presentation.pages.to_f() * 100.0)
   end
 
   def new
@@ -80,7 +79,6 @@ class PresentationsController < ApplicationController
     @content = @presentation.content.gsub("\r","")
 
     @raw = @content =~ /\A!SLIDE/ ? @content : "!SLIDE\n#{@content}"
-    @slides = slides
     @additionals = "shared/slides" 
     @presentation_id = params[:id]  
     render :layout => 'presentation'
@@ -139,7 +137,6 @@ class PresentationsController < ApplicationController
 
   def lines
     @lines ||= @content.split(/^!SLIDE\s*([a-z\s]*)$/).reject { |line| line.empty? }
-    puts @lines
     @lines.each { |e| puts "LINIA: " + e }
   end
 
