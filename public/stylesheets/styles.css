@@ -921,6 +921,10 @@ p.title {
   padding: 0 0 0 2em;
 }
 
+.slide img {
+width: 25%;
+} 
+
 p.comments {
   background: #000000;
   padding-left: 50px;
