@@ -1,15 +1,22 @@
 <h2>Listing presentation</h2>
 
+<%= form_tag presentations_path, :method => :get, :remote => true do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
 <table>
   <tr>
     <th>Title</th>
     <th>Description</th>
   </tr>
 
-  <% @presentations.each do |presentation| %>
-    <tr>
-      <td><%= link_to "#{presentation.title}", presentation %></td>
-      <td><%= presentation.description %></td>
-    </tr>
-  <% end %>
+  <div id="presentations">
+    <%= render @presentations%>
+  </div>
 </table>
+<% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+  <%= link_to tag.name, tags_presentation_path(:name=>tag.name), :class => css_class %>
+<% end %>

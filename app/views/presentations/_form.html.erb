@@ -2,6 +2,7 @@
   <%= render 'shared/error_messages', :object => f.object %>
   <%= f.input :title %>
   <%= f.input :description, :input_html => { :class => "wmd-ignore"} %>
+  <%= f.input :tag_list %>
   <% if @presentation.is_owner?(@user) %>
     <fieldset>
       <legend><%= t('form.presentation.fieldset.legend') %></legend>

@@ -3,6 +3,9 @@ class PresentationsController < ApplicationController
   before_filter :presentation_visible, :only => [ :show, :run ]
   before_filter :presentation_editable, :only => [ :edit, :update ]
   before_filter :presentation_destroy, :only => [ :destroy ]
+  before_filter :only => [:index, :tags] do
+    @tags = Presentation.tag_counts
+  end
 
   load_and_authorize_resource
 
@@ -11,8 +14,15 @@ class PresentationsController < ApplicationController
   # 'index, new, create' znajduje sie w metodzie 'presentation_not_found'
 
   def index
-    @user = current_user
-    @presentations = @user.presentations
+    #@user = current_user
+    #@presentations = @user.presentations
+    @presentations = Presentation.search(params[:search])
+    @tags = Presentation.tag_counts
+  end
+
+  def tags
+    @fortunes = Presentation.tagged_with(params[:name])
+    render 'index'
   end
 
   def show

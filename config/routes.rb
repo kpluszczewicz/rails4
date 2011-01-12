@@ -1,8 +1,15 @@
 Rails4::Application.routes.draw do
+  resources :comments
+
   scope ':locale' do
     devise_for :users
 
-    resources :presentations
+    resources :presentations do
+      resources :comments
+      collection do
+        get :tags
+      end
+    end
 
     match 'presentations/:id/subscribe' => 'presentations#subscribe', :as => 'subscribe'
     match 'presentations/:id/subscribe_create' => 'presentations#subscribe_create', :as => 'subscribe_create'
