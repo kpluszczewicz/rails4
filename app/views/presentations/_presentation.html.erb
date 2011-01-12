@@ -1,5 +1,15 @@
-<tr>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Tagi</th>
+  </tr>
+
+    <% @presentations.each do |presentation| %>
+  <tr>
       <td><%= link_to "#{presentation.title}", presentation %></td>
       <td><%= presentation.description %></td>
       <td><%= presentation.tag_list %></td>
-</tr>
+  </tr>
+  <% end %>
+</table>

@@ -7,17 +7,9 @@
   </p>
 <% end %>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Tagi</th>
-  </tr>
-
   <div id="presentations">
-    <%= render @presentations %>
+    <%= render 'presentation' %>
   </div>
-</table>
 <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
   <%= link_to tag.name, tags_presentation_path(:name=>tag.name), :class => css_class %>
 <% end %>
