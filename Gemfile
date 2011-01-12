@@ -19,11 +19,8 @@ gem 'cancan'
 gem 'faye'
 gem 'eventmachine'
 gem 'rack'
-<<<<<<< HEAD
 gem 'will_paginate', "~> 3.0.pre2"
-=======
 gem 'acts-as-taggable-on'
->>>>>>> 70ac86b9ae183e5014176b9f202457656e2fe996
 
 # Use unicorn as the web server
 # gem 'unicorn'
