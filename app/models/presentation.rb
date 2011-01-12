@@ -45,6 +45,6 @@ class Presentation < ActiveRecord::Base
   end
 
   def self.search(query)
-    where("title like ?", "%#{query}%")
   end
+
 end

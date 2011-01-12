@@ -16,7 +16,9 @@ class PresentationsController < ApplicationController
   def index
     #@user = current_user
     #@presentations = @user.presentations
-    @presentations = Presentation.search(params[:search])
+    #if current_user
+    query = params[:search]
+    @presentations = Presentation.where("title like ?", "%#{query}%").all(:conditions => {:visible => true})
     @tags = Presentation.tag_counts
   end
 
