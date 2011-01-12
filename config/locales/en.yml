@@ -15,6 +15,7 @@ en:
     about: "About us"
     contact: "Contact"
     new_presentation: "New Presentation"
+    show_public: "Public Presentations"
     list_presentation: "Presentations"
     delete: "Usuń"
     edit: "Edytuj"

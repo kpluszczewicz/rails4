@@ -1,0 +1,7 @@
+<h2>Tak to jest</h2>
+<ul>
+<% @presentations.each do |p| -%>
+  <li><%= p.title %></li>
+<% end -%>
+</ul>
+<%= will_paginate @presentations %>

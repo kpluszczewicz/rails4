@@ -1,6 +1,5 @@
 class PresentationsController < ApplicationController
-  respond_to :html, :js
-  before_filter :presentation_not_found, :except => [ :index, :new, :create ]
+  before_filter :presentation_not_found, :except => [ :index, :new, :create, :index_public ]
   before_filter :presentation_visible, :only => [ :show, :run ]
   before_filter :presentation_editable, :only => [ :edit, :update ]
   before_filter :presentation_destroy, :only => [ :destroy ]
@@ -15,6 +14,8 @@ class PresentationsController < ApplicationController
   # 'index, new, create' znajduje sie w metodzie 'presentation_not_found'
 
   def index
+    #@user = current_user
+    #@presentations = @user.presentations
     @presentations = Presentation.search(params[:search])
     @tags = Presentation.tag_counts
   end
@@ -26,6 +27,11 @@ class PresentationsController < ApplicationController
 
   def show
     @user = current_user
+  end
+
+  def index_public
+    @presentations = Presentation.paginate :page => params[:page], :conditions => ['visible = ?', true]
+    render 'index_public'
   end
 
   def new
