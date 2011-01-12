@@ -17,6 +17,7 @@ Rails4::Application.routes.draw do
     match 'presentations/:id/run' => 'presentations#run', :as => 'run_presentation'
     match 'presentations/:id/watch' => 'presentations#watch', :as => 'watch_presentation'
     match 'index_public' => 'presentations#index_public', :as => 'index_public_presentations'
+    match 'index_private' => 'presentations#index_private', :as => 'index_private_presentations'
 
     match 'welcome' => 'welcome#welcome'
     match 'profile' => 'welcome#profile'

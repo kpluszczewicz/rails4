@@ -16,7 +16,9 @@ en:
     contact: "Contact"
     new_presentation: "New Presentation"
     show_public: "Public Presentations"
-    list_presentation: "Presentations"
+    watch_private: "Watch private Presentations"
+    search_public: "Search Public Presentations"
+    list_presentation: "My Presentations"
     delete: "Usuń"
     edit: "Edytuj"
     confirm: "Are you sure"
@@ -40,6 +42,11 @@ en:
       h1: "Write slides in markdown"
       h2: "Highlight Your code!"
       h3: "Show your slides to others in realtime!"
+  presentations:
+    search: 
+      head: "Find presentation"
+      tip: "Type title or description"
+      button: "Search"
     about:
     profile:
 

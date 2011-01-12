@@ -3,7 +3,7 @@
 <%= javascript_include_tag 'jquery.hash-changed.js' %>
 
 <script type="text/javascript">
-  var client = new Faye.Client('http://localhost:8000/submonkey');
+  var client = new Faye.Client('http://localhost:10888/submonkey');
   var suffix = "<%= @presentation_id %>"
   client.subscribe('/presentation-' + suffix, function(message) {
       var slideholder = document.getElementById("slideholder");

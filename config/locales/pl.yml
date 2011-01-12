@@ -16,7 +16,9 @@ pl:
     contact: "Kontakt"
     new_presentation: "Nowa prezentacja"
     show_public: "Publiczne prezentacje"
-    list_presentation: "Prezentacje"
+    watch_private: "Oglądaj prywatne prezentacje"
+    search_public: "Przeszukaj publiczne prezentacje"
+    list_presentation: "Moje prezentacje"
     delete: "Usuń"
     edit: "Edytuj"
     confirm: "Jesteś pewny?"
@@ -42,6 +44,11 @@ pl:
       h3: "Prezentuj slajdy w trybie realtime!"
     about:
     profile:
+  presentations:
+    search: 
+      head: "Wyszukiwanie prezentacji"
+      tip: "Wpisz tytuł lub opis"
+      button: "Wyszukaj"
 
   flash:
     actions:

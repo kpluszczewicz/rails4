@@ -1,8 +1,9 @@
-<h2>Tak to jest</h2>
+<h2>Tak to jest prywatnie</h2>
 <% @presentations.each do |p| -%>
   <div class="presentation-item">
-    <p class="title"><%= link_to p.title, p %></p>
+    <p class="title"><%= p.title %></p>
     <p class="desc"><%= p.description %></p>
+    <p><%= link_to "Watch!", watch_presentation_path(p) %>
   </div>
 
 <% end -%>

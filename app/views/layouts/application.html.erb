@@ -43,11 +43,13 @@
           <li><%= link_to t("nav.profile"), profile_path %></li>
         <% end -%>
         <li><%= link_to t('nav.show_public'), index_public_presentations_path %></li>
+        <li><%= link_to t('nav.watch_private'), index_private_presentations_path %></li>
+        <li><%= link_to t('nav.search_public'), presentations_path %></li>
         <li><%= link_to t('nav.about'), aboutus_path %></li>
         <br />
       <% if user_signed_in? %>
           <li><%= link_to t('nav.new_presentation'), new_presentation_path %></li>
-          <li><%= link_to t('nav.list_presentation'), presentations_path %></li>
+          <li><%= link_to t('nav.list_presentation'), profile_path %></li>
       <% end %>
       </ul>
 

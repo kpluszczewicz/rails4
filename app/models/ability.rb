@@ -10,6 +10,7 @@ class Ability
         else
             # odczyc jezeli mamy publiczba prezentacje lub mamy jak w subskrypcji
             can :show, Presentation
+            can :watch, Presentation
             can :run, Presentation do |presentation|
                 if not presentation.nil?
                     presentation.visible == true || presentation.is_member?(user)

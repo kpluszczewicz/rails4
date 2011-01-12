@@ -6,7 +6,7 @@
 (function($) {
   jQuery.easing.def = "easeOutQuart"; // For tweening
 
-  var client = new Faye.Client('http://localhost:8000/submonkey');
+  var client = new Faye.Client('http://localhost:10888/submonkey');
 
   var broadcast = function() {
     var url = window.location;

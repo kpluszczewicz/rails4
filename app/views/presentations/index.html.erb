@@ -1,9 +1,10 @@
-<h2>Listing presentation</h2>
+<h2><%= t('presentations.search.head') %></h2>
+<h3><%= t('presentations.search.tip') %></h3>
 
 <%= form_tag presentations_path, :method => :get, :remote => true do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
+    <%= submit_tag t('presentations.search.button'), :name => nil %>
   </p>
 <% end %>
 

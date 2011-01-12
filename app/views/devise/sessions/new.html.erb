@@ -1,7 +1,8 @@
 <h2><%= t('v.sessions.signin') %></h2>
 
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name),
+             :html => { :class => "sign" }) do |f| %>
   <p><%= f.label :email %>
   <%= f.text_field :email %></p>
 

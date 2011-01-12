@@ -18,9 +18,12 @@
 <% end %>
 
 <% if @presentation.comments.any? %>
+<p class="comments">
   <%= render @presentation.comments %>
+</p>
 <% end %>
 
 <p>Add comment</p>
 <%= render 'comments/form' %>
+
 

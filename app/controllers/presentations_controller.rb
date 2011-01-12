@@ -1,5 +1,5 @@
 class PresentationsController < ApplicationController
-  before_filter :presentation_not_found, :except => [ :index, :new, :create, :index_public ]
+  before_filter :presentation_not_found, :except => [ :index, :new, :create, :index_public, :index_private ]
   before_filter :presentation_visible, :only => [ :show, :run ]
   before_filter :presentation_editable, :only => [ :edit, :update ]
   before_filter :presentation_destroy, :only => [ :destroy ]
@@ -18,7 +18,7 @@ class PresentationsController < ApplicationController
     #@presentations = @user.presentations
     #if current_user
     query = params[:search]
-    @presentations = Presentation.where("title like ?", "%#{query}%").all(:conditions => {:visible => true})
+    @presentations = Presentation.where("(title like ? or description like ?) and visible = ?", "%#{query}%", "%#{query}%", true)
     @tags = Presentation.tag_counts
   end
 
@@ -29,6 +29,11 @@ class PresentationsController < ApplicationController
 
   def show
     @user = current_user
+  end
+
+  def index_private
+    @presentations = Presentation.paginate :page => params[:page], :conditions => ['visible = ?', true]
+    render 'index_private'
   end
 
   def index_public

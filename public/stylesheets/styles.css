@@ -876,6 +876,19 @@ fieldset {
   display: block;
   height: 100px;
 }
+
+.sign input[type="text"], .sign input[type="password"] {
+  width: 400px;
+}
+
+.presentation-item {
+  margin-bottom: 10px;
+}
+p.title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
 /********************* SLIDES ******************************/
 #preview-heading {
   margin-top: 10px;
@@ -906,4 +919,14 @@ fieldset {
 }
 .slide ol {
   padding: 0 0 0 2em;
+}
+
+p.comments {
+  background: #000000;
+  padding-left: 50px;
+  padding-right: 5px;
+}
+
+p.comment {
+  background: #ffffff;
 }
