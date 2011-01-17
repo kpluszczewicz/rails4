@@ -16,3 +16,10 @@ Twórca prezentacji może ją odtworzyć w przeglądarce, pozwalając określony
 ### Użyte technologie
 
 Projekt opieramy na Rails 3. Elementy RealTime planujemy zrezlizować przy użyciu gemu [Faye](http://faye.jcoglan.com/)
+
+## Autorzy
+
+* Krzysztof Dermont (erihel)
+* Łukasz Draba (eaplokryo)
+* Aleksander Wierucki (awieruck)
+* Kamil Pluszczewicz (borch)
